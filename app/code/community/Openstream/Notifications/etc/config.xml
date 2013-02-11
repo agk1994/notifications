@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Openstream_Notifications>
+            <version>0.1.0</version>
+        </Openstream_Notifications>
+    </modules>
+    <global>
+        <models>
+            <openstream_notifications>
+                <class>Openstream_Notifications_Model</class>
+            </openstream_notifications>
+        </models>
+    </global>
+    <adminhtml>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <openstream_notifications>
+                        <type>singleton</type>
+                        <class>Openstream_Notifications_Model_Observer</class>
+                        <method>controllerActionPredispatch</method>
+                    </openstream_notifications>
+                </observers>
+            </controller_action_predispatch>
+        </events>
+    </adminhtml>
+    <default>
+        <system>
+            <openstream_notifications>
+                <feed_url>openstream.ch/wp-content/plugins/magento-feed/magento-feed.php?cat=3</feed_url>
+            </openstream_notifications>
+        </system>
+    </default>
+</config>
